@@ -12,17 +12,17 @@ def print_scheduler():
 	input()
 
 def add_scheduler():
-	"""Вывод списка задач"""
+	"""добавление задачи"""
 	pass
 
 def edit_scheduler():
-	"""Вывод списка задач"""
+	"""Редактирование задачи"""
 	pass
 
 def end_scheduler():
-	"""Вывод списка задач"""
+	"""завершение задачи"""
 	pass
 
 def begin_again_scheduler():
-	"""Вывод списка задач"""
+	"""начать задачу с начала"""
 	pass

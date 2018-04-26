@@ -1,7 +1,7 @@
 from function import *
 
 def input_menu():
-	while True: #not (number.is_integer() == False) and not (1 <= number <= 6):
+	while True:
 		number = input()
 		if not number.isnumeric():
 			print('Не верный ввод данных. Введите цифру от 1 до 6: ')
