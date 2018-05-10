@@ -26,13 +26,13 @@ def dec2hex(number):
 def code(number, sysnum):
 	""" Функция перевода десятичного числа в sysnum систему исчисления """
 	rez = ''
-	while (number > 1):
+	while (number >= 1):
 		if (number%sysnum >= 10):
 			rez = ifinhex(number%sysnum) + rez
 		else :
 			rez = str(number%sysnum) + rez
 		number = number//sysnum
-	return rez
+	return str(rez)
 
 
 def bin2dec(number):
@@ -93,6 +93,6 @@ if __name__ == '__main__' :
 	print(dec2bin(250))
 	print(dec2oct(493))
 	print(dec2hex(11259375))
-	print(bin2dec(1010011010)) 
-	print(oct2dec(755))
-	print(hex2dec('abcdef'))
+	print(bin2dec(dec2bin(250)))
+	print(oct2dec(dec2oct(493)))
+	print(hex2dec(dec2hex(11259375)))

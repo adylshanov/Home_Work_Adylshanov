@@ -3,9 +3,7 @@ from function import *
 def input_menu():
 	while True:
 		number = input()
-		if not number.isnumeric():
-			print('Не верный ввод данных. Введите цифру от 1 до 6: ')
-		elif not (1 <= int(number) <=6):
+		if not number.isnumeric() or not (1 <= int(number) <=6):
 			print('Не верный ввод данных. Введите цифру от 1 до 6: ')
 		else:
 			return(int(number))
@@ -22,7 +20,3 @@ while (number != 6):
 	elif (number == 3) : edit_scheduler()
 	elif (number == 4) : end_scheduler()
 	elif (number == 5) : begin_again_scheduler()
-
- 	
-
-
