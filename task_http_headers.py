@@ -10,7 +10,7 @@ def http_headers_to_json(input_file,output_file):
         js = question(file[0])
 
     for i in range(1,len(file)-1, 1):
-        if (file[i] == '\n'):
+        if (file[i] == ''):
             break
         s = file[i].split(': ',1)
         js.update([(s[0], s[1])])
@@ -29,6 +29,7 @@ def answer(file):
     if file[0] != 'HTTP/2' :
         for i in range(2,len(file), 1):
             s +=' '+file[i]
+    s = s.lstrip()
     js.update(status_message = s)
     return js
 
