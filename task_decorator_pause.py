@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
+from functools import wraps
 import time
 
 def pause(t):
     def decorator(func):
+        @wraps(func)
         def wrapper(*args, **kwargs):
             time.sleep(t)
-            return func()
+            return func(*args, **kwargs)
         return wrapper
     return decorator
 
@@ -15,5 +17,4 @@ def func():
 
 
 if __name__ == '__main__' :
-    func()
     func()
