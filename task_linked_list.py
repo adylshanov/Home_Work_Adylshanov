@@ -25,6 +25,7 @@ class LinkedList(object):
 		else:
 			self.last.link_next = self.last = OneLink(value, None)
 		self.size += 1
+		#print('len {}'.format(self.size))
 
 	def __str__(self):
 		"""перегрузка для вывода списка"""
@@ -42,6 +43,9 @@ class LinkedList(object):
 		"""добавляет элемент в указаную позицию"""
 		if index >= self.size:
 			self.add(value)
+			return
+		elif index == 0:
+			self.begin = OneLink(value, self.begin)
 		else:
 			i = self.begin
 			step = 1
@@ -56,7 +60,7 @@ class LinkedList(object):
 	def get(self, index):
 		""" возращает значение с указаным индексом"""
 		#print(index, self.size)
-		if index > self.size:
+		if index >= self.size:
 			raise IndexError
 		
 		if index+1 == self.size:
@@ -87,8 +91,8 @@ class LinkedList(object):
 			i = i.link_next
 		
 
-	def remote_at(self, index):
-		if index - 1 > self.size: raise IndexError
+	def remove_at(self, index):
+		if index >= self.size: raise IndexError
 
 		d = self.begin
 		i = d.link_next
@@ -147,30 +151,34 @@ class LinkedList(object):
 
 if __name__ == '__main__':
 	l1 = LinkedList(1, 2, 3, 4, 5)
+	#print(l1.len())
 	#print(l1)
 	l1.add(6)
 	#print(l1)
-	l1.insert(1,10)
-	#print(l1)
+	l1.insert(0,10)
+	print(l1)
 	l1.insert(2,20)
-	#print(l1)
+	print(l1)
+	l1.insert(8,30)
+	print(l1)
+	#print(l1.len())
 	#print(l1.get(1))
-	#print(l1.get(4))
-	l1.remove(2)
+	#print(l1.get(8))
+	#l1.remove(2)
 	#print(l1)
-	l1.remote_at(0)
+	#l1.remote_at(0)
 	#l1.remote_at(100)
 	#print(l1)
 	#l1.clear()
-	print(l1)
+	#print(l1)
 	#print(l1.contains(3))
 	#print(l1.contains(100))
-	#print(l1.len())
+	print(l1.len())
 	#print(l1.is_empty())
-	
-	#l2 = LinkedList('item1', 'item2', 'item3')
+	"""
+	l2 = LinkedList('item1', 'item2', 'item3')
 	print(l2.get(3))
 	print(l2)
 	for item in l2: print(item)
-
+	"""
 
