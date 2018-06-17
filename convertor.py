@@ -42,11 +42,14 @@ class MainWindow(QMainWindow):
 
 		self.covertBtn = QPushButton('Перевести', self)
 		self.resetBtn = QPushButton('Сброс', self)
-		#self.covertBtn.setEnabled(False)
+		self.covertBtn.setEnabled(False)
 
 	def _initSignals(self):
 		self.covertBtn.clicked.connect(self.onClickConvertBtn)
 		self.resetBtn.clicked.connect(self.onClickResetBtn)
+
+		self.srcAmountEdit.valueChanged.connect(self.valuechange)
+		self.resultAmountEdit.valueChanged.connect(self.valuechange)
 		#Enter
 		#self.covertBtn.setAutoDefault(True)
 		#self.srcAmountEdit.returnPressed.connect(self.covertBtn.click)
@@ -88,6 +91,14 @@ class MainWindow(QMainWindow):
 	def onClickResetBtn(self):
 		self.srcAmountEdit.setValue(0)
 		self.resultAmountEdit.setValue(0)
+
+	def valuechange(self):
+		if (self.srcAmountEdit.value()) or (self.resultAmountEdit.value()) :
+			self.covertBtn.setEnabled(True)
+		else:
+			self.covertBtn.setEnabled(False)
+
+
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
